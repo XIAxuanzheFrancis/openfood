@@ -7,9 +7,9 @@ import com.xuanzhe_franck.openfood.pojo.NutritionScore;
 import com.xuanzhe_franck.openfood.pojo.Rule;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import java.util.Optional;
 
 @Service
 public class NutritionScoreService {

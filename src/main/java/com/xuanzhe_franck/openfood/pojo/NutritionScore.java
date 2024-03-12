@@ -1,6 +1,7 @@
 package com.xuanzhe_franck.openfood.pojo;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NutritionScore {
+  @Id
   private int ID;
   private String CLASS;
   private double UPPER_BOUND;
