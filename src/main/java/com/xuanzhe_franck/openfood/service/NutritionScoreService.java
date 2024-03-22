@@ -102,14 +102,14 @@ public class NutritionScoreService {
     }
 
     for (Rule rule : negativeRules) {
-      if ("sugars_100g".equals(rule.getNAME()) && nutritionInformation.getSaturated_fat_100g() < rule.getMIN_BOUND()) {
+      if ("sugars_100g".equals(rule.getNAME()) && nutritionInformation.getSugars_100g() < rule.getMIN_BOUND()) {
         negativeComponent += (rule.getPOINTS()-1);
         break;
       }
     }
 
     for (Rule rule : negativeRules) {
-      if ("salt_100g".equals(rule.getNAME()) && nutritionInformation.getSaturated_fat_100g() < rule.getMIN_BOUND()) {
+      if ("salt_100g".equals(rule.getNAME()) && nutritionInformation.getSalt_100g() < rule.getMIN_BOUND()) {
         negativeComponent += (rule.getPOINTS()-1);
         break;
       }
@@ -129,7 +129,7 @@ public class NutritionScoreService {
       }
     }
     for (Rule rule : positiveRules) {
-      if ("proteins_100g".equals(rule.getNAME()) && nutritionInformation.getFiber_100g() < rule.getMIN_BOUND()) {
+      if ("proteins_100g".equals(rule.getNAME()) && nutritionInformation.getProteins_100g() < rule.getMIN_BOUND()) {
         positiveComponent += (rule.getPOINTS()-1);
         break;
       }
@@ -139,7 +139,7 @@ public class NutritionScoreService {
 
 
   private int calculateOverallScore(double negativeComponent, double positiveComponent) {
-    int nutritionScore = (int) Math.round(positiveComponent - negativeComponent);
+    int nutritionScore = (int) Math.round(negativeComponent - positiveComponent);
     return nutritionScore;
   }
 

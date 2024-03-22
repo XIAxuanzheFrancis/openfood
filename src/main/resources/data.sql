@@ -27,17 +27,17 @@ insert into rule(id, name, points, min_bound, component) values(9, 'energy_100g'
 insert into rule(id, name, points, min_bound, component) values(10, 'energy_100g', 9, 3015, 'N');
 insert into rule(id, name, points, min_bound, component) values(11, 'energy_100g', 10, 3350, 'N');
 
-insert into rule(id, name, points, min_bound, component) values(21, 'saturated-fat_100g', 0, 0, 'N');
-insert into rule(id, name, points, min_bound, component) values(22, 'saturated-fat_100g', 1, 1, 'N');
-insert into rule(id, name, points, min_bound, component) values(23, 'saturated-fat_100g', 2, 2, 'N');
-insert into rule(id, name, points, min_bound, component) values(24, 'saturated-fat_100g', 3, 3, 'N');
-insert into rule(id, name, points, min_bound, component) values(25, 'saturated-fat_100g', 4, 4, 'N');
-insert into rule(id, name, points, min_bound, component) values(26, 'saturated-fat_100g', 5, 5, 'N');
-insert into rule(id, name, points, min_bound, component) values(27, 'saturated-fat_100g', 6, 6, 'N');
-insert into rule(id, name, points, min_bound, component) values(28, 'saturated-fat_100g', 7, 7, 'N');
-insert into rule(id, name, points, min_bound, component) values(29, 'saturated-fat_100g', 8, 8, 'N');
-insert into rule(id, name, points, min_bound, component) values(30, 'saturated-fat_100g', 9, 9, 'N');
-insert into rule(id, name, points, min_bound, component) values(31, 'saturated-fat_100g', 10, 10, 'N');
+insert into rule(id, name, points, min_bound, component) values(21, 'saturated_fat_100g', 0, 0, 'N');
+insert into rule(id, name, points, min_bound, component) values(22, 'saturated_fat_100g', 1, 1, 'N');
+insert into rule(id, name, points, min_bound, component) values(23, 'saturated_fat_100g', 2, 2, 'N');
+insert into rule(id, name, points, min_bound, component) values(24, 'saturated_fat_100g', 3, 3, 'N');
+insert into rule(id, name, points, min_bound, component) values(25, 'saturated_fat_100g', 4, 4, 'N');
+insert into rule(id, name, points, min_bound, component) values(26, 'saturated_fat_100g', 5, 5, 'N');
+insert into rule(id, name, points, min_bound, component) values(27, 'saturated_fat_100g', 6, 6, 'N');
+insert into rule(id, name, points, min_bound, component) values(28, 'saturated_fat_100g', 7, 7, 'N');
+insert into rule(id, name, points, min_bound, component) values(29, 'saturated_fat_100g', 8, 8, 'N');
+insert into rule(id, name, points, min_bound, component) values(30, 'saturated_fat_100g', 9, 9, 'N');
+insert into rule(id, name, points, min_bound, component) values(31, 'saturated_fat_100g', 10, 10, 'N');
 
 insert into rule(id, name, points, min_bound, component) values(32, 'sugars_100g', 0, 0, 'N');
 insert into rule(id, name, points, min_bound, component) values(33, 'sugars_100g', 1, 4.5, 'N');
