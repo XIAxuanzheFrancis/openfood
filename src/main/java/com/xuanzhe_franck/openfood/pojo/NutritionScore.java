@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class NutritionScore {
   @Id
   private int ID;
-  private String CLASS;
+  private String CLASSE;
   private double UPPER_BOUND;
   private double LOWER_BOUND;
   private String COLOR;
