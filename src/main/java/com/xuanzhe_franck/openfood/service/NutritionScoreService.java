@@ -25,15 +25,16 @@ public class NutritionScoreService {
   @Autowired
   private RuleRepository ruleRepository;
 
-  public String calculateNutritionScore(String barcode) {
+  public NutritionInformation calculateNutritionScore(String barcode) {
     NutritionInformation nutritionInformation = retrieveNutritionInformationFromAPI(barcode);
     double negativeComponent = calculateNegativeComponent(nutritionInformation);
     double positiveComponent = calculatePositiveComponent(nutritionInformation);
     int nutritionScore = calculateOverallScore(negativeComponent, positiveComponent);
-    String nutritionGrade = evaluateNutritionScore(nutritionScore);
+    nutritionInformation.setNutritionScore(nutritionScore);
+    String nutritionGrade = evaluateNutritionScore(nutritionScore).getCLASSE();
     nutritionInformation.setNutrition_grades(nutritionGrade);
-
-    return nutritionGrade;
+    nutritionInformation.setColor(evaluateNutritionScore(nutritionScore).getCOLOR());
+    return nutritionInformation;
   }
 
   public NutritionInformation retrieveNutritionInformationFromAPI(String barcode) {
@@ -143,22 +144,20 @@ public class NutritionScoreService {
     return nutritionScore;
   }
 
-  private String evaluateNutritionScore(int nutritionScore) {
+  private NutritionScore evaluateNutritionScore(int nutritionScore) {
 
     // Retrieve all score ranges from the database
     List<NutritionScore> scoreRanges = nutritionScoreRepository.findAll();
 
-    // Find the appropriate evaluation based on the calculated nutrition score
-    String evaluation = "Unknown";
+    NutritionScore nutritionScore1 = new NutritionScore();
 
     for (NutritionScore range : scoreRanges) {
       if (nutritionScore >= range.getLOWER_BOUND() && nutritionScore <= range.getUPPER_BOUND()) {
-        evaluation = range.getCLASSE();
+        nutritionScore1 = range;
         break;
       }
     }
-
-    return evaluation;
+    return nutritionScore1;
   }
 }
 

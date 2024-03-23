@@ -1,5 +1,7 @@
 package com.xuanzhe_franck.openfood.controller;
 
+import com.xuanzhe_franck.openfood.pojo.NutritionInfoImpo;
+import com.xuanzhe_franck.openfood.pojo.NutritionInformation;
 import com.xuanzhe_franck.openfood.service.NutritionScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,11 +16,16 @@ public class produitController {
   private NutritionScoreService nutritionScoreService;
 
   @GetMapping("/product/{barcode}")
-  public String getProductByBarcode(@PathVariable String barcode) {
+  public NutritionInfoImpo getProductByBarcode(@PathVariable String barcode) {
     // Calculate the nutrition score and retrieve other product information
-    String productName = "Biscuits fourrés parfum chocolat (35%) - Prince Goût Chocolat au Blé Complet";
-    String nutritionScore = nutritionScoreService.calculateNutritionScore(barcode);
-    return nutritionScore;
+    NutritionInformation nutritionInformation = new NutritionInformation();
+    nutritionInformation = nutritionScoreService.calculateNutritionScore(barcode);
+    NutritionInfoImpo nutritionInfoImpo = new NutritionInfoImpo();
+    nutritionInfoImpo.setBarCode(barcode);
+    nutritionInfoImpo.setName(nutritionInformation.getProduct_name());
+    nutritionInfoImpo.setNutritionScore(nutritionInformation.getNutritionScore());
+    nutritionInfoImpo.setColor(nutritionInformation.getColor());
+    return nutritionInfoImpo;
   }
   @GetMapping("/hello")
   public String test1() {

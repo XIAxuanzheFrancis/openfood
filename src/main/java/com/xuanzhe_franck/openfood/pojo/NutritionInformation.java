@@ -12,6 +12,8 @@ public class NutritionInformation {
     private String code;
     private String product_name;
     private String nutrition_grades;
+    private String color;
+    private int nutritionScore;
     private double fiber_100g;
     private double proteins_100g;
     private double energy_100g;
