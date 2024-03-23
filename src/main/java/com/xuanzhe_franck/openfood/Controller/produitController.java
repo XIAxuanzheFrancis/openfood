@@ -23,6 +23,7 @@ public class produitController {
     NutritionInfoImpo nutritionInfoImpo = new NutritionInfoImpo();
     nutritionInfoImpo.setBarCode(barcode);
     nutritionInfoImpo.setName(nutritionInformation.getProduct_name());
+    nutritionInfoImpo.setClasse(nutritionInformation.getNutrition_grades());
     nutritionInfoImpo.setNutritionScore(nutritionInformation.getNutritionScore());
     nutritionInfoImpo.setColor(nutritionInformation.getColor());
     return nutritionInfoImpo;
